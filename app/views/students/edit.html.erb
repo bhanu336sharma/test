@@ -1,0 +1,77 @@
+<div class="new_student container" data="toggle" align="center">
+    <%= form_for([@teacher, @teacher.students.build]) do |f| %>
+        <div class="field">
+            <%= f.label :name %><br />
+            <%= f.text_field :name, autofocus: true %>
+        </div>
+        <div class="field">
+            <%= f.label :phone_no %><br />
+            <%= f.text_field :phone_no, autofocus: true %>
+        </div>
+        <div class="field">
+            <%= f.label :address %><br />
+            <%= f.text_area :address, autofocus: true %>
+        </div>
+        <div class="field">
+            <%= f.label :image %><br/>
+            <%= f.file_field :image %>
+        </div>
+        <div class="actions ">
+            <%= f.submit "create" %>
+        </div><br/>
+
+    <% end %>
+    <button class="btn btn-primary cancel">Cancel</button>
+</div>
+<script type="text/javascript">
+  
+    $(document).ready(function() {
+
+      $('#new_student').validate({
+        rules:{
+          "student[name]":{
+            required: true          
+          },
+          "student[phone_no]":{
+            required: true,          
+            minlength: 10,
+            maxlength: 10
+          },
+          "student[address]":{
+            required: true,
+            required: true
+          },
+          "student[password]":{
+            required: true,
+            minlength: 8,
+            maxlength: 8
+          },
+          "student[password_confirmation]":{
+            required: true,
+            equalTo: "#student_password"
+          }
+        },
+        messages:{
+          "student[name]":{
+            required:  "field required"          
+          },
+          "student[phone_no]":{
+            required:  "field required" ,         
+            minlength: "Invalid",
+            maxlength: "Invalid"
+          },
+          "student[address]":{
+            required: "field required"
+          },
+          "student[password]":{
+            required:  "field required", 
+            minlength: "Length must be 8",
+            maxlength: "Length must be 8"
+          },
+          "student[password_confirmation]":{
+            equalTo: "must be equal to password"
+          }
+        }
+      });
+  });
+</script>

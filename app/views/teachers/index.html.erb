@@ -1,0 +1,41 @@
+<h4 align="center"><a href="/teachers/new">New Teacher</a></h4>
+<div>
+	<table class="container table table-striped table-bordered ">
+		<tr>
+			<th>
+				Name 
+			</th>
+			<th>
+				Phone No 
+			</th>
+			<th>
+				Address 
+			</th>
+		</tr>
+		<% @teacher.each do |obj|%>
+		<tr>
+			<td>
+				<%=obj.name%>
+			</td>
+			<td>
+				<%=obj.phone_no%>
+			</td>
+			<td>
+				<%=obj.address%>
+			</td>
+			<td>
+				<%=obj.image_url(:thumb)%>		
+			</td>
+			<td>
+                <%= link_to 'Show', "/teachers/#{obj.id}" %>
+			</td>
+            <td>
+            	<%=link_to 'EDIT',"/teachers/#{obj.id}/edit"%>
+            </td>
+            <td><%= link_to 'DELETE', "/teachers/#{obj.id}",  method: :delete , :confirm => "Are you sure you want to delete this item?" %>
+            </td>
+		</tr>
+		<%end%>	
+	</table>
+</div>
+		
