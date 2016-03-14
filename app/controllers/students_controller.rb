@@ -5,7 +5,6 @@ class StudentsController < ApplicationController
 
 	def create
     	@teacher = Teacher.find(params[:teacher_id])
-    	binding.pry
     	@student = @teacher.students.create(student_params)
     	redirect_to "/"
     end
@@ -15,7 +14,6 @@ class StudentsController < ApplicationController
 	end
 	def edit
 		@teacher = Teacher.find(params[:teacher_id])
-		binding.pry
     	@student = @teacher.students.find(params[:id])		
 	end
 

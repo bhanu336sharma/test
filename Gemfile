@@ -18,6 +18,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'pry'
+gem 'activeadmin', '1.0.0.pre2'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

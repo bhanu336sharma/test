@@ -4,7 +4,6 @@ class TeachersController < ApplicationController
 	end
 	def create
 		@teacher= Teacher.create(teacher_params)
-		binding.pry
     	redirect_to "/"
 	end
 	def index
@@ -24,7 +23,6 @@ class TeachersController < ApplicationController
 
   	def update
 		@teacher = Teacher.find(params[:id])
-		binding.pry
 		@teacher.update_attributes(teacher_params)
 	    redirect_to "/"
 	end
